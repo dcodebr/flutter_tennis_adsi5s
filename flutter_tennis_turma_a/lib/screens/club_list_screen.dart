@@ -21,7 +21,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
           "https://images.tcdn.com.br/img/img_prod/1235983/kit_completo_para_quadra_de_beach_tennis_rede_de_protecao_263_1_ea5ab5a7588b6af1553f9c8378cedb09.jpg",
     ),
     Club(
-      name: "Quadra Sumaré",
+      name: "Quadra JD Oasis",
       location: "Maringá",
       state: "PR",
       cover: "Outdoor",
@@ -43,7 +43,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 204, 200, 200),
       body: Column(
         children: [
           Expanded(
@@ -57,7 +57,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
                 ),
               ),
               width: double.infinity,
-              child: Image.network(urlLogo, fit: BoxFit.cover),
+              child: Image.asset('assets/images/logo.jpg', fit: BoxFit.cover),
             ),
           ),
           Expanded(
@@ -110,6 +110,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
             flex: 6,
             child: SingleChildScrollView(
               child: Column(
+                spacing: 10,
                 children: clubList
                     .map(
                       (club) => Container(
@@ -117,11 +118,77 @@ class _ClubListScreenState extends State<ClubListScreen> {
                         height: 165,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: Colors.blue,
+                          color: Colors.white,
                         ),
                         child: Row(
                           children: [
-                            Expanded(flex: 5, child: Placeholder()),
+                            Expanded(
+                              flex: 5,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 15),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "${club.name}",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.location_on_outlined),
+                                        Text(
+                                          "${club.location}, ${club.state}",
+                                          style: TextStyle(fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.wb_sunny_outlined),
+                                        Text(
+                                          "${club.cover}",
+                                          style: TextStyle(fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.attach_money,
+                                          color: const Color.fromARGB(
+                                            255,
+                                            10,
+                                            79,
+                                            13,
+                                          ),
+                                        ),
+                                        Text(
+                                          "${club.price?.toStringAsFixed(2)}/h",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: const Color.fromARGB(
+                                              255,
+                                              10,
+                                              79,
+                                              13,
+                                            ),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                             Expanded(flex: 4, child: Placeholder()),
                           ],
                         ),
