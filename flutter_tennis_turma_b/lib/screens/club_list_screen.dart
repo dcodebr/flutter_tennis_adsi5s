@@ -41,10 +41,14 @@ class _ClubListScreenState extends State<ClubListScreen> {
     ),
   ];
 
+  List<Club> currentList = [];
+
+  TextEditingController pesquisaController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 236, 235, 235),
       body: Column(
         children: [
           Expanded(
@@ -71,7 +75,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
                     flex: 6,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: const Color.fromARGB(255, 218, 218, 218),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       child: Row(
@@ -82,6 +86,19 @@ class _ClubListScreenState extends State<ClubListScreen> {
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 20),
                               child: TextField(
+                                controller: pesquisaController,
+                                onChanged: (value) {
+                                  String pesquisa = pesquisaController.text;
+
+                                  setState(() {
+                                    currentList = clubList
+                                        .where(
+                                          (club) =>
+                                              club.nome!.contains(pesquisa),
+                                        )
+                                        .toList();
+                                  });
+                                },
                                 decoration: InputDecoration(
                                   hintText: "Search",
                                   border: InputBorder.none,
@@ -114,18 +131,91 @@ class _ClubListScreenState extends State<ClubListScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   spacing: 10,
-                  children: clubList
+                  children: currentList
                       .map(
                         (club) => Container(
+                          clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
-                            color: Colors.amber,
+                            color: Colors.white,
                           ),
                           height: 175,
                           child: Row(
                             children: [
-                              Expanded(flex: 4, child: Placeholder()),
-                              Expanded(flex: 3, child: Placeholder()),
+                              Expanded(
+                                flex: 4,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    spacing: 5,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "${club.nome}",
+                                            style: TextStyle(
+                                              fontSize: 23,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.location_on_outlined),
+                                          Text(
+                                            "${club.cidade}, ${club.estado}",
+                                            style: TextStyle(fontSize: 18),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.wb_sunny_outlined),
+                                          Text(
+                                            "${club.cobertura}",
+                                            style: TextStyle(fontSize: 18),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "\$${club.preco}/h",
+                                            style: TextStyle(
+                                              fontSize: 23,
+                                              color: const Color.fromARGB(
+                                                255,
+                                                30,
+                                                62,
+                                                31,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.5),
+                                  child: Container(
+                                    clipBehavior: Clip.antiAlias,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Image.network(
+                                      club.urlImagem!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
