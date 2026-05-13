@@ -22,7 +22,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
           "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg",
     ),
     Club(
-      nome: "Orla Beach Tennis",
+      nome: "Sarandi Club Tennis",
       cidade: "Maringá",
       estado: "PR",
       cobertura: "Sem cobertura",
@@ -31,7 +31,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
           "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg",
     ),
     Club(
-      nome: "Orla Beach Tennis",
+      nome: "Paiçandu Club",
       cidade: "Maringá",
       estado: "PR",
       cobertura: "Sem cobertura",
@@ -45,8 +45,17 @@ class _ClubListScreenState extends State<ClubListScreen> {
 
   TextEditingController pesquisaController = TextEditingController();
 
+  void searchClubs() {
+    String pesquisa = pesquisaController.text.toUpperCase();
+    currentList = clubList
+        .where((club) => club.nome!.toUpperCase().contains(pesquisa))
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    searchClubs();
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 236, 235, 235),
       body: Column(
@@ -87,18 +96,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
                               padding: const EdgeInsets.only(bottom: 20),
                               child: TextField(
                                 controller: pesquisaController,
-                                onChanged: (value) {
-                                  String pesquisa = pesquisaController.text;
-
-                                  setState(() {
-                                    currentList = clubList
-                                        .where(
-                                          (club) =>
-                                              club.nome!.contains(pesquisa),
-                                        )
-                                        .toList();
-                                  });
-                                },
+                                onChanged: (value) => setState(() {}),
                                 decoration: InputDecoration(
                                   hintText: "Search",
                                   border: InputBorder.none,

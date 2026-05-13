@@ -1,0 +1,164 @@
+{
+    "clubs": [
+        {
+            "nome": "Golden Lounge",
+            "cidade": "São Paulo",
+            "estado": "SP",
+            "cobertura": "Premium VIP",
+            "preco": 250.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Blue Ocean Club",
+            "cidade": "Rio de Janeiro",
+            "estado": "RJ",
+            "cobertura": "All Inclusive",
+            "preco": 320.5,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Terraço Sunset",
+            "cidade": "Belo Horizonte",
+            "estado": "MG",
+            "cobertura": "Padrão",
+            "preco": 85.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Infinity Night",
+            "cidade": "Curitiba",
+            "estado": "PR",
+            "cobertura": "VIP Silver",
+            "preco": 150.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Pampa Green",
+            "cidade": "Porto Alegre",
+            "estado": "RS",
+            "cobertura": "Básica",
+            "preco": 45.9,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Nordeste Star",
+            "cidade": "Recife",
+            "estado": "PE",
+            "cobertura": "Total",
+            "preco": 190.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Astro Lounge",
+            "cidade": "Brasília",
+            "estado": "DF",
+            "cobertura": "Executiva",
+            "preco": 210.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Amazon Beat",
+            "cidade": "Manaus",
+            "estado": "AM",
+            "cobertura": "Econômica",
+            "preco": 60.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Salvador Vibes",
+            "cidade": "Salvador",
+            "estado": "BA",
+            "cobertura": "Master",
+            "preco": 175.5,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Cerrado Sky",
+            "cidade": "Goiânia",
+            "estado": "GO",
+            "cobertura": "VIP Gold",
+            "preco": 280.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Urban Space",
+            "cidade": "Campinas",
+            "estado": "SP",
+            "cobertura": "Padrão",
+            "preco": 95.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Ilha Club",
+            "cidade": "Florianópolis",
+            "estado": "SC",
+            "cobertura": "Premium Plus",
+            "preco": 350.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Capixaba Night",
+            "cidade": "Vitória",
+            "estado": "ES",
+            "cobertura": "Básica",
+            "preco": 55.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Pantanal Fest",
+            "cidade": "Cuiabá",
+            "estado": "MT",
+            "cobertura": "Intermediária",
+            "preco": 120.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Beira Mar Club",
+            "cidade": "Fortaleza",
+            "estado": "CE",
+            "cobertura": "Vantagem+",
+            "preco": 140.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Minas Crystal",
+            "cidade": "Uberlândia",
+            "estado": "MG",
+            "cobertura": "VIP Platinum",
+            "preco": 400.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Solaris Lounge",
+            "cidade": "Natal",
+            "estado": "RN",
+            "cobertura": "Férias Total",
+            "preco": 225.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Black Box",
+            "cidade": "Santos",
+            "estado": "SP",
+            "cobertura": "Night Pass",
+            "preco": 70.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Pampa Lux",
+            "cidade": "Caxias do Sul",
+            "estado": "RS",
+            "cobertura": "Premium",
+            "preco": 185.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        },
+        {
+            "nome": "Pará Beats",
+            "cidade": "Belém",
+            "estado": "PA",
+            "cobertura": "Básica",
+            "preco": 40.0,
+            "urlImagem": "https://static.sportit.com.br/public/sportit/imagens/produtos/quadra-de-beach-tennis-sport-it-m2-2946.jpg"
+        }
+    ]
+}
