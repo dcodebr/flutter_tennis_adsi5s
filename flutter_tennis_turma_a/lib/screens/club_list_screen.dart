@@ -22,7 +22,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
     ),
     Club(
       name: "Quadra JD Oasis",
-      location: "Maringá",
+      location: "Sarandi",
       state: "PR",
       cover: "Outdoor",
       price: 19.90,
@@ -31,7 +31,7 @@ class _ClubListScreenState extends State<ClubListScreen> {
     ),
     Club(
       name: "Quadra Sumaré",
-      location: "Maringá",
+      location: "Marialva",
       state: "PR",
       cover: "Outdoor",
       price: 19.90,
@@ -40,8 +40,28 @@ class _ClubListScreenState extends State<ClubListScreen> {
     ),
   ];
 
+  TextEditingController pesquisaController = TextEditingController();
+
+  List<Club> listaFiltrada = [];
+
+  void pesquisaClubs() {
+    listaFiltrada = clubList
+        .where(
+          (club) =>
+              club.name!.toUpperCase().contains(
+                pesquisaController.text.toUpperCase(),
+              ) ||
+              club.location!.toUpperCase().contains(
+                pesquisaController.text.toUpperCase(),
+              ),
+        )
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    pesquisaClubs();
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 204, 200, 200),
       body: Column(
@@ -81,6 +101,8 @@ class _ClubListScreenState extends State<ClubListScreen> {
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 20),
                               child: TextField(
+                                controller: pesquisaController,
+                                onChanged: (value) => setState(() {}),
                                 decoration: InputDecoration(
                                   hintText: "Search",
                                   border: InputBorder.none,
@@ -109,92 +131,111 @@ class _ClubListScreenState extends State<ClubListScreen> {
           Expanded(
             flex: 6,
             child: SingleChildScrollView(
-              child: Column(
-                spacing: 10,
-                children: clubList
-                    .map(
-                      (club) => Container(
-                        clipBehavior: Clip.antiAlias,
-                        height: 165,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.white,
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 5,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 15),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  spacing: 2,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "${club.name}",
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  spacing: 10,
+                  children: listaFiltrada
+                      .map(
+                        (club) => Container(
+                          clipBehavior: Clip.antiAlias,
+                          height: 165,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: Colors.white,
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 5,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    spacing: 2,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "${club.name}",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.location_on_outlined),
-                                        Text(
-                                          "${club.location}, ${club.state}",
-                                          style: TextStyle(fontSize: 14),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.wb_sunny_outlined),
-                                        Text(
-                                          "${club.cover}",
-                                          style: TextStyle(fontSize: 14),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.attach_money,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            10,
-                                            79,
-                                            13,
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.location_on_outlined),
+                                          Text(
+                                            "${club.location}, ${club.state}",
+                                            style: TextStyle(fontSize: 14),
                                           ),
-                                        ),
-                                        Text(
-                                          "${club.price?.toStringAsFixed(2)}/h",
-                                          style: TextStyle(
-                                            fontSize: 18,
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.wb_sunny_outlined),
+                                          Text(
+                                            "${club.cover}",
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.attach_money,
                                             color: const Color.fromARGB(
                                               255,
                                               10,
                                               79,
                                               13,
                                             ),
-                                            fontWeight: FontWeight.bold,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                          Text(
+                                            "${club.price?.toStringAsFixed(2)}/h",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: const Color.fromARGB(
+                                                255,
+                                                10,
+                                                79,
+                                                13,
+                                              ),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Expanded(flex: 4, child: Placeholder()),
-                          ],
+                              Expanded(
+                                flex: 4,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Container(
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    height: double.infinity,
+                                    child: Image.network(
+                                      club.urlImage!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+                ),
               ),
             ),
           ),
